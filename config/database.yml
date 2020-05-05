@@ -1,0 +1,18 @@
+base: &base
+  adapter: mysql2
+  username: root
+  password: password
+  host: 127.0.0.1
+  port: 3306
+  encoding: utf8
+  variables:
+    sql_mode: ""
+
+development:
+  database: view_component_devel
+  <<: *base
+
+test:
+  database: view_component_test
+  reconnect: true
+  <<: *base
