@@ -1,7 +1,10 @@
-.card
+= card do
   - if header_picture.present?
-    .card_header_picture= image_tag header_picture, class: "img-fluid w-100"
-  .card-header
-    %h2= header
-  .card-body= body
-  .card-footer= footer
+    = card_image header_picture
+  = card_header(title: title) do
+    = header
+  = card_content do
+    = card_body do
+      = body
+    = card_footer do
+      = footer
