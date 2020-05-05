@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 User
+%table
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Role
+      %th Avatar
+  %tbody
+    %tr
+      %td= @user.first_name
+      %td= @user.last_name
+      %td= @user.role
+      %td= link_to "Update Avatar", user_avatars_path(@user)
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path
