@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CardComponent < ViewComponent::Base
+class CardComponent < N2StylesComponent
+# class CardComponent < ViewComponent::Base
   # include N2Styles::CardHelper
-  include N2StylesHelper
 
   with_content_areas :header, :body, :footer
 
