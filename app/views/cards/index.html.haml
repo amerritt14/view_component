@@ -1,0 +1,8 @@
+= render(CardComponent.new) do |component|
+  - component.with(:header) do
+    Example Card
+  - component.with(:body) do
+    %p This is an example card using the card component.
+    %p These lines will appear in the body of the card.
+  - component.with(:footer) do
+    %p This could be anything from text to buttons.

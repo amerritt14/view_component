@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+
+source "https://gem.fury.io/n2-dev/" do
+  gem "n2_styles", "~> 3.5", ">= 3.5.2"
+end
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'mysql2'
@@ -31,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'view_component'
+
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
