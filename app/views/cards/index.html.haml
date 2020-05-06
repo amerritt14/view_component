@@ -1,5 +1,6 @@
 .container
   .row
+
     -# This is using the view_component way to make a card
     .col-6
       = render(CardComponent.new(header_picture: "light-blur-green.jpg", title: "Component Card")) do |component|
@@ -9,6 +10,7 @@
           %p These lines will appear in the body of the card.
         - component.with(:footer) do
           %p This could be anything from text to buttons.
+
     -# This uses the traditional way of making a card
     .col-6
       = card do

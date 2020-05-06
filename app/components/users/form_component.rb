@@ -4,19 +4,24 @@ module Users
   class FormComponent < ViewComponent::Base
     attr_reader :user
 
+    delegate :role, to: :user
+
     def initialize(user:)
       @user = user
     end
 
     def render_in(*args)
-      case user.role
-      when "admin"
-        Users::AdminFormComponent.new(user: user).render_in(*args)
-      when "it_support"
-        Users::ItSupportFormComponent.new(user: user).render_in(*args)
-      else
-        Users::DefaultFormComponent.new(user: user).render_in(*args)
-      end
+      component_klass.new(user: user).render_in(*args)
     end
+
+    private
+
+    def component_klass
+      @component_klass ||= "Users::#{role.classify}FormComponent".constantize
+    rescue NameError
+      @component_klass = Users::DefaultFormComponent
+    end
+
+    @component_klass
   end
 end
