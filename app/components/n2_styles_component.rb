@@ -2,7 +2,7 @@
 
 class N2StylesComponent < ViewComponent::Base
   # OPTION 1) INCLUDE THE HELPERS
-  # include N2Styles::CardHelper
+  include N2Styles::CardHelper
 
   # include N2StylesHelper
 
