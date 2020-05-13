@@ -1,0 +1,7 @@
+%h3.mt-2 Avatar
+= form.fields_for :avatar, (user.avatar || Avatar.new) do |avatar_form|
+  = render AvatarComponent.new(user: user, avatar: avatar_form.object)
+  = avatar_form.label :image_name
+  = avatar_form.select :image, image_options
+  = avatar_form.label :color
+  = avatar_form.select :color, color_options

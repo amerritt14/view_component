@@ -1,8 +1,11 @@
 .mt-3
-  .grey-text.text-darken-1 First Name
-  =user.first_name
-  .grey-text.text-darken-1 Last Name
-  =user.last_name
-  .grey-text.text-darken-1 Role
-  =user.role
-  %br
+  = form_with model: user, local: true, builder: MaterialForm do |form|
+    .grey-text.text-darken-1 First Name
+    =user.first_name
+    .grey-text.text-darken-1 Last Name
+    =user.last_name
+    .grey-text.text-darken-1 Role
+    =user.role
+    = render ::AvatarFormComponent.new(user: user, form: form)
+    %br
+    = form.submit

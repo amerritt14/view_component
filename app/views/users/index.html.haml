@@ -1,20 +1,28 @@
 %p#notice= notice
-%h1 Users
-%table
-  %thead
-    %tr
-      %th First Name
-      %th Last Name
-      %th Role
-      %th{:colspan => "3"}
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.first_name
-        %td= user.last_name
-        %td= user.role
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New User', new_user_path
+
+= render CardComponent.new(title: "Users") do |card|
+  - card.with(:body) do
+    %ul.list-group.list-group-flush
+      .row
+        .col
+          %h5 First Name
+        .col
+          %h5 Last Name
+        .col
+          %h5 Role
+        .col
+        .col-4
+          %h5 Actions
+      - @users.each do |user|
+        %li.list-group-item.row
+          .col= user.first_name
+          .col= user.last_name
+          .col= user.role
+          .col
+          .col-4
+            .row
+              .col= link_to 'Show', user
+              .col= link_to 'Edit', edit_user_path(user)
+              .col= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+  - card.with(:footer) do
+    = material_link_to 'New User', new_user_path
